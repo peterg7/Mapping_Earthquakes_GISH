@@ -15,8 +15,8 @@ attribution: 'Map data © <a href="https://www.openstreetmap.org/">OpenStreetMap
 
 // Create a base layer that holds both maps.
 let baseMaps = {
-  Streets: streets,
-  Satellite Streets: satelliteStreets,
+  "Streets": streets,
+  "Satellite Streets": satelliteStreets,
 };
 
 // Create the map object with center, zoom level and default layer.
@@ -29,18 +29,18 @@ let map = L.map('mapid', {
 // Pass map layers into layers control and add the layers control to the map.
 L.control.layers(baseMaps).addTo(map);
 
-let torontoData = "https://raw.githubusercontent.com/peterg7/Mapping_Earthquakes_GISH/Mapping_GeoJSON_Linestrings/torontoRoutes.json";
+let torontoHoods = "https://raw.githubusercontent.com/peterg7/Mapping_Earthquakes_GISH/Mapping_GeoJSON_Polygons/torontoNeighborhoods.json";
 
-// Create a style for the lines.
+// Create a style for the polygons.
 let myStyle = {
 	color: 'blue',
 	weight: 1,
 	fillColor: 'yellow',
-	fillOpacity: 0.7
+	fillOpacity: 0.2
 }
 
 // Grabbing our GeoJSON data.
-d3.json(torontoData).then(function(data) {
+d3.json(torontoHoods).then(function(data) {
     console.log(data);
   // Creating a GeoJSON layer with the retrieved data.
   	L.geoJson(data, {
