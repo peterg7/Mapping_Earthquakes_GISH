@@ -15,8 +15,8 @@ attribution: 'Map data © <a href="https://www.openstreetmap.org/">OpenStreetMap
 
 // Create a base layer that holds both maps.
 let baseMaps = {
-  "Streets": streets,
-  "Satellite Streets": satelliteStreets,
+	"Streets": streets,
+	"Satellite Streets": satelliteStreets,
 };
 
 // Create the map object with center, zoom level and default layer.
@@ -42,7 +42,7 @@ let myStyle = {
 // Grabbing our GeoJSON data.
 d3.json(torontoHoods).then(function(data) {
     console.log(data);
-  // Creating a GeoJSON layer with the retrieved data.
+  	// Creating a GeoJSON layer with the retrieved data.
   	L.geoJson(data, {
 	  	onEachFeature: function(feature, layer) {
 				layer.bindPopup("<h3>Neighborhood: " + feature.properties.name + "</h3>");
